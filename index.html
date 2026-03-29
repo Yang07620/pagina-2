@@ -34,6 +34,27 @@
       margin-left: 20px;
       text-decoration: none;
       color: #333;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: #4A90E2;
+      transition: width 0.3s;
+    }
+
+    nav a:hover {
+      color: #4A90E2;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     header {
@@ -62,11 +83,29 @@
       font-size: 1.1em;
       cursor: pointer;
       margin: 10px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta:hover {
+      transform: translateY(-3px) scale(1.05);
+      background: #ff5252;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .cta:active {
+      transform: scale(0.95);
     }
 
     .cta.secondary {
       background: transparent;
       border: 2px solid white;
+    }
+
+    .cta.secondary:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-3px);
     }
 
     .stats {
@@ -102,6 +141,12 @@
       border-radius: 12px;
       width: 260px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .step:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
     }
 
     .features {
@@ -118,6 +163,12 @@
       border-radius: 10px;
       width: 250px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
     }
 
     .final-cta {
@@ -210,6 +261,18 @@
   <p>Email: contacte@teucv.ai</p>
   <p>Telèfon: +34 600 123 456</p>
 </footer>
+
+<script>
+  const buttons = document.querySelectorAll('.cta');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.style.transform = "scale(0.9)";
+      setTimeout(() => {
+        btn.style.transform = "scale(1)";
+      }, 150);
+    });
+  });
+</script>
 
 </body>
 </html>
